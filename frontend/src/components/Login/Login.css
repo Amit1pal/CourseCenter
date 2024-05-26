@@ -17,26 +17,39 @@
   .message{
     display: none;
   }
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+  }
   
+  .form-group {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .form-group:last-child {
+    margin-right: 0;
+  }
   .video-background video {
     min-width: 100%;
     min-height: 100%;
   }
-  
+  .login-page.login .login-form-container {
+    width: 350px;
+    max-width: 400px;
+  }
   .login-form-container {
     position: relative;
-    width: 350px;
     z-index: 1;
     background: rgba(255, 255, 255, 0.9); 
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
   }
   
   .logo-container {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
   
   .login-form {
@@ -56,7 +69,8 @@
   }
   
   input[type='text'],
-  input[type='password'] {
+  input[type='password'],
+  input[type='email'] {
     padding: 15px;
     /* border: 1px solid #ddd; */
     border-radius: 8px;
@@ -64,13 +78,7 @@
     border:none;
     outline: none;
     /* transition: all 0.3s ease; */
-  }
-  
-  input[type='text']:focus,
-  input[type='password']:focus {
-    /* border-color: #007bff; */
-  }
-  
+  }  
   button {
     padding: 15px 20px;
     border: none;
@@ -86,14 +94,15 @@
     background-color: #0056b3;
   }
   .logo-container img{
-    height: 100px;
-    width: 100px;
+    height: 70px;
+    width: 70px;
     border-radius: 10px;
     background: none;
   }
   .login-form .form-group{
     display: flex;
     flex-direction: column;
+    margin-right: 0px;
   }
   .login-form .form-group input:hover{
     border: none;
@@ -109,4 +118,13 @@
   .dont_have_account button{
     border: none;
     outline: none;
+  }
+  .register_btn_login a{
+    color: white !important;
+  }
+  .login-page.register input{
+    margin-inline: 10px;
+  }
+  .login-page.register label,.login-page.register span{
+    margin-inline: 10px;
   }

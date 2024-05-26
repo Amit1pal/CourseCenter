@@ -20,12 +20,15 @@ const db = mysql.createConnection({
 });
 
 app.post('/register', (req, res) => {
+    const sentFirstname=req.body.Firstname;
+    const sentLastname=req.body.Lastname;
     const sentEmail = req.body.Email;
     const sentUsername = req.body.Username;
     const sentPassword = req.body.Password;
+    const sentConfirmPassword= req.body.ConfirmPassword;
 
-    const SQL = 'INSERT INTO users (email, username, password) VALUES (?, ?, ?)';
-    const values = [sentEmail, sentUsername, sentPassword];
+    const SQL = 'INSERT INTO users (firstname,lastname,email, username, password,confirm_password) VALUES (?, ?, ?, ?, ?, ?)';
+    const values = [sentFirstname,sentLastname,sentEmail, sentUsername, sentPassword,sentConfirmPassword];
     
     db.query(SQL, values, (err, results) => {
         if (err) {
@@ -38,13 +41,12 @@ app.post('/register', (req, res) => {
 });
 
 app.post('/login',(req,res)=>{
-    const LoginsentUsername = req.body.LoginUsername;
+    const LoginsentEmail = req.body.LoginEmail;
     const LoginsentPassword = req.body.LoginPassword;
-
-    console.log(LoginsentPassword);
-    console.log(LoginsentPassword);
-    const SQL = 'SELECT * FROM users WHERE username = ? AND password = ?';
-    const values = [LoginsentUsername,LoginsentPassword];
+    console.log('email',LoginsentEmail);
+    console.log('password',LoginsentPassword);
+    const SQL = 'SELECT * FROM users WHERE email = ? AND password = ?';
+    const values = [LoginsentEmail,LoginsentPassword];
     db.query(SQL, values, (err, results) => {
         if (err) {
             res.send({Erorr: err});
